@@ -38,5 +38,42 @@
 
 
     </div>
+    <script>
+        let shoppingCart = new Vue({
+            el:'#app2',
+            data:{
+                carts:[],
+                test:"dsad",
+                lessons:lessons,
+                user:{
+                    name:'',
+                    phone:''
+                }
+            },
+            computed:{
+                returnText(){
+                    
+                    let retrievedResult =JSON.parse(localStorage.cart);
+                    this.carts=[];
+                    for(let i=0;i<JSON.parse(localStorage.cart).length;i++)
+                    {
+                        this.carts.push({subject:retrievedResult[i].subject,location:retrievedResult[i].location,price:retrievedResult[i].price,spaces:retrievedResult[i].spaces,imagePath:retrievedResult[i].imagePath});
+
+                    }
+                    return this.carts;
+                    
+                },
+
+                validateCheckout(){
+                    if(this.user.name.match(/^[A-Za-z]+$/)&&this.user.phone.match(/^[0-9]+$/))
+                    {
+                        return true;
+                    }
+
+                }
+            }
+        })
+        
+    </script>
 </body>
 </html>
