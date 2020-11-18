@@ -71,6 +71,27 @@
                     }
 
                 }
+            },
+            methods:{
+                deleteLesson(cart)
+                {
+                    
+                    for(i=0;i<this.carts.length;i++)
+                    {
+                        if(cart.subject==this.carts[i].subject)
+                        {
+                            this.carts.splice(i,1); 
+                            window.localStorage.clear();
+                            localStorage.cart=JSON.stringify(this.carts);
+                            return;
+
+                            
+                        }
+                    }
+                },
+                submitOrder(){
+                    alert("Your order has been submitted");
+                }
             }
         })
         
