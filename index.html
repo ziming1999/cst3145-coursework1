@@ -68,6 +68,114 @@
                 }
 
 
+            },
+            computed: {
+                checkForFilter() {
+                    if (this.filterCriteria == "subject" && this.filterOrder == "ascending") {
+                        function compare(a, b) {
+                            if (a.subject > b.subject)
+                                return 1;
+                            if (a.subject < b.subject)
+                                return -1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "subject" && this.filterOrder == "descending") {
+                        function compare(a, b) {
+                            if (a.subject > b.subject)
+                                return -1;
+                            if (a.subject < b.subject)
+                                return 1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "location" && this.filterOrder == "ascending") {
+                        function compare(a, b) {
+                            if (a.location > b.location)
+                                return 1;
+                            if (a.location < b.location)
+                                return -1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "location" && this.filterOrder == "descending") {
+                        function compare(a, b) {
+                            if (a.location > b.location)
+                                return -1;
+                            if (a.location < b.location)
+                                return 1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "price" && this.filterOrder == "ascending") {
+                        function compare(a, b) {
+                            if (a.price > b.price)
+                                return 1;
+                            if (a.price < b.price)
+                                return -1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "price" && this.filterOrder == "descending") {
+                        function compare(a, b) {
+                            if (a.price > b.price)
+                                return -1;
+                            if (a.price < b.price)
+                                return 1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "availability" && this.filterOrder == "ascending") {
+                        function compare(a, b) {
+                            if (a.spaces > b.spaces)
+                                return 1;
+                            if (a.spaces < b.spaces)
+                                return -1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                    else if (this.filterCriteria == "availability" && this.filterOrder == "descending") {
+                        function compare(a, b) {
+                            if (a.spaces > b.spaces)
+                                return -1;
+                            if (a.spaces < b.spaces)
+                                return 1;
+                            else
+                                return 0;
+                        }
+
+                        return this.lessons.sort(compare);
+
+                    }
+                }
             }
         })
         </script>
