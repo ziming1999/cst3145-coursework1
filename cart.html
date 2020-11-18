@@ -1,0 +1,42 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script src="https://unpkg.com/vue"></script>
+    <script src="lessons.js"></script>
+</head>
+<body>
+    <div id="app2">
+        <h1>Shopping Cart</h1>
+        <a href="index.html">Go back to previous page</a>
+        <div class="row">
+            <div class="column" v-for="cart in returnText">
+                <figure>
+                    <img v-bind:src="cart.imagePath">
+                </figure>
+                <h4>Subject: {{cart.subject}}</h4>
+                <h4>Location: {{cart.location}}</h4>
+                <h4>Price: {{cart.price}}</h4>
+                <h4>Spaces: {{cart.spaces}}</h4>
+
+                <button v-on:click='deleteLesson(cart)'>Remove</button>
+            </div>
+        </div>
+        <div v-if="this.carts.length>0">
+            <h1>Checkout</h1>
+            <h3>Name :</h3>
+            <input type="text" v-model='user.name'>
+            <h3>Phone :</h3>
+            <input type="text" v-model='user.phone'>
+            <button v-if="validateCheckout" v-on:click="submitOrder">Checkout</button>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
