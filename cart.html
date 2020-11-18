@@ -9,6 +9,52 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="lessons.js"></script>
 </head>
+<style>
+    figure>img {
+        float: left;
+        width: 180px;
+    }
+
+    .subject {
+        border: 1px solid gray;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .column {
+        float: left;
+        width: 300px;
+        padding-right: 10px;
+        height: 230px;
+        margin-top: 20px;
+        margin-right: 10px;
+        border: 1px solid black;
+        text-align: right;
+    }
+
+    #app {
+        padding-left: 150px;
+    }
+
+    figure>img {
+        width: 80px;
+        height: 100px;
+    }
+    a{
+
+        font-size:25px;
+        border:1px solid blue;
+        color:white;
+        background:#3090C7;
+        text-decoration: none;
+        padding:5px;
+        border-radius: 10px;
+    }
+</style>
 <body>
     <div id="app2">
         <h1>Shopping Cart</h1>
