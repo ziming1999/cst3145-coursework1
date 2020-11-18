@@ -1,0 +1,51 @@
+<!doctype <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lesson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="lessons.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+        <div>
+            <div style="display:inline-block">
+                <p>Sort By</p>
+                <input type="radio" id="subject" value="subject" v-model="filterCriteria"><label for="subject">Subject</label>
+                <input type="radio" id="price" value="price" v-model="filterCriteria"><label for="price">Price</label>
+                <input type="radio" id="location" value="location" v-model="filterCriteria"><label for="location">Location</label>
+                <input type="radio" id="availability" value="availability" v-model="filterCriteria"><label for="availability">Availability</label>
+            </div>
+            <div style="padding-left:50px; display: inline-block">
+                <input type="radio" id="ascending" name="filterSorting" value="ascending" v-model=" filterOrder"
+                    ><label for="ascending">Ascending</label>
+                <input type="radio" id="descending" name="filterSorting" value="descending" v-model=" filterOrder"><label
+                    for="descending">descending</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column" v-for="lesson in checkForFilter">
+                <figure>
+                    <img v-bind:src="lesson.imagePath">
+                </figure>
+                <h4>Subject: {{lesson.subject}}</h4>
+                <h4>Location: {{lesson.location}}</h4>
+                <h4>Price: {{lesson.price}}</h4>
+                <h4>Spaces: {{lesson.spaces}}</h4>
+
+                <button v-on:click='addToCart(lesson)' v-if='lesson.spaces>0'>Add to Cart</button>
+
+            </div>
+        </div>
+        <br>
+
+        <a href="cart.html" v-if='cart.length>0'>Go to Shopping cart</a>
+    </div>
+</body>
+
+</html>
