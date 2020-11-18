@@ -46,6 +46,33 @@
 
         <a href="cart.html" v-if='cart.length>0'>Go to Shopping cart</a>
     </div>
+        <script>
+
+        let app2 = new Vue({
+            el: '#app',
+            data: {
+
+                lessons: lessons,
+                cart: cart,
+                filterCriteria: 'subject',
+                filterOrder: 'ascending'
+
+            },
+            methods: {
+                addToCart: function (lesson) {
+                    this.cart.push({ subject: lesson.subject, location: lesson.location, price: lesson.price, spaces: lesson.spaces, imagePath: lesson.imagePath });
+                    lesson.spaces -= 1;
+                    localStorage.clear();
+                    localStorage.cart = JSON.stringify(this.cart);
+                    let retrievedResult = JSON.parse(localStorage.cart);
+                }
+
+
+            }
+        })
+        </script>
+    
+    
 </body>
 
 </html>
